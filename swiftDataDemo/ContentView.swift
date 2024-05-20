@@ -7,23 +7,17 @@
 
 import SwiftUI
 import SwiftData
+
 struct ContentView: View {
     @Environment(\.modelContext) var context
     @Query var expenseData: [Expense] // array contain all records
-    @Query var users: [User]
+    @State var path = [Expense]()
+    
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             List{
                 ForEach(expenseData, id: \.self) { result in
-                    HStack {
-                        Text("\(result.name)")
-                        Spacer()
-                        Text("\(result.value)")
-                    }
-                }
-                .onDelete(perform: deleteExpense)
-                Section{
-                    ForEach(users, id: \.self) { result in
+                    NavigationLink(value: result){
                         HStack {
                             Text("\(result.name)")
                             Spacer()
@@ -31,35 +25,26 @@ struct ContentView: View {
                         }
                     }
                 }
-            } 
+                .onDelete(perform: deleteExpense)
+            }
             .navigationTitle("Expense Data")
+            .navigationDestination(for: Expense.self, destination: { des in
+                EditView(expense: des)
+            })
+            
             .toolbar{
-                    Button("add Expense") {
-                        addExpense()
-                    }
-                    
-                    Button("add User") {
-                        addUser()
-                    }
+                Button("add Expense") {
+                    addExpense()
                 }
+            }
         }
 
        
     }
     func addExpense(){
-        let expense = Expense(
-            name: "name4",
-            date: .now,
-            value: 27
-        )
-        context.insert(expense)
-    }
-    func addUser(){
-        let user = User(
-            name: "user1",
-            value: 27
-        )
-        context.insert(user)
+        let newExpense = Expense()
+        context.insert(newExpense)
+        path = [newExpense]
     }
     
     func deleteExpense(indexSet: IndexSet) {

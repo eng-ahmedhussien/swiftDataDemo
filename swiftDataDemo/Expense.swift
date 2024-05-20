@@ -15,7 +15,7 @@ class Expense{
         var date: Date
         var value: Double
         
-        init(name: String, date: Date, value: Double) {
+    init(name: String = "", date: Date = .now, value: Double = 0.0) {
             self.name = name
             self.date = date
             self.value = value
