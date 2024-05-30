@@ -23,12 +23,12 @@ class Expense{
 }
 
 
-@Model class User {
-        @Attribute(.unique) var name: String
-        var value: Double
-        
-        init(name: String, value: Double) {
-            self.name = name
-            self.value = value
-        }
-}
+//@Model class User {
+//        @Attribute(.unique) var name: String
+//        var value: Double
+//        
+//        init(name: String, value: Double) {
+//            self.name = name
+//            self.value = value
+//        }
+//}
