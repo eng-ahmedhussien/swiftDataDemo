@@ -11,6 +11,9 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) var context
     @Query var expenseData: [Expense] // array contain all records
+   // @Query(sort: \Expense.name, animation: .bouncy) var expenseData: [Expense]
+   // @Query(sort: \Expense.date,order: .reverse) var expenseData: [Expense]
+
     @State var path = [Expense]()
     
     var body: some View {
@@ -58,3 +61,16 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
+struct EditView: View {
+    @Bindable var expense: Expense
+    var body: some View {
+        Form{
+            TextField("name", text: $expense.name)
+            TextField("value", value: $expense.value, formatter: NumberFormatter())
+            DatePicker("data", selection: $expense.date)
+        }.navigationTitle("edit View")
+    }
+}
+
