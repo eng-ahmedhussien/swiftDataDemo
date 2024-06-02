@@ -42,12 +42,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B9D0B632C089F9600FF8E91 /* Models */ = {
+		6B0915F52C0CA2B60000C1DA /* Stor using DBmanger */ = {
 			isa = PBXGroup;
 			children = (
-				6BD62F7E2BFA2633001FEAAE /* ExpenseModel.swift */,
+				6B42BF1F2BFDCC0500C570AF /* UserListView.swift */,
 			);
-			path = Models;
+			path = "Stor using DBmanger";
 			sourceTree = "<group>";
 		};
 		6B9D0B642C089FD200FF8E91 /* Store API response locally */ = {
@@ -79,11 +79,11 @@
 		6BD62F6F2BFA261E001FEAAE /* swiftDataDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6B9D0B642C089FD200FF8E91 /* Store API response locally */,
-				6B9D0B632C089F9600FF8E91 /* Models */,
 				6BD62F702BFA261E001FEAAE /* swiftDataDemoApp.swift */,
+				6B0915F52C0CA2B60000C1DA /* Stor using DBmanger */,
+				6B9D0B642C089FD200FF8E91 /* Store API response locally */,
 				6BD62F722BFA261E001FEAAE /* ContentView.swift */,
-				6B42BF1F2BFDCC0500C570AF /* UserListView.swift */,
+				6BD62F7E2BFA2633001FEAAE /* ExpenseModel.swift */,
 				6BD62F742BFA261F001FEAAE /* Assets.xcassets */,
 				6BD62F762BFA261F001FEAAE /* Preview Content */,
 			);

@@ -48,6 +48,7 @@ struct UserListView: View {
     }
 }
 
+//MARK: -  AddUserView
 struct AddUserView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -81,6 +82,7 @@ struct AddUserView: View {
     }
 }
 
+//MARK: - DBManger
 class DBManger {
     static let shared = DBManger()
     let container: ModelContainer
@@ -98,6 +100,7 @@ class DBManger {
     }
 }
 
+//MARK: - Model
 @Model
 class User {
     var id: UUID
